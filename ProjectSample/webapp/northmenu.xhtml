@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+
+	<h:form id="menuFormt">
+
+		<p:menubar>
+			<p:menuitem value="#{bundle.Home}" outcome="index" icon="ui-icon-home" />
+			<p:submenu label="Organization" icon="ui-icon-battery-0"
+				>
+
+
+		
+
+			</p:submenu>
+			<p:submenu label="Admin Maintenace Forms" icon="ui-icon-gear" >
+				<p:menuitem value="aim" outcome="aims" />
+				<p:menuitem value="entity" outcome="index" />
+				
+			</p:submenu>
+			
+			<p:submenu label="Events" icon="ui-icon-document"
+				>
+					<p:menuitem value="Listeners Events" outcome="index" />
+				
+			</p:submenu>
+			<p:submenu label="Scopes" icon="ui-icon-newwin" >
+			
+				<p:menuitem value="Application " outcome="index" />
+				<p:menuitem value="Session" outcome="index" />
+				<p:menuitem value="View" outcome="index" />
+				<p:menuitem value="Request" outcome="index" />
+				<p:menuitem value="None" outcome="index" />
+
+			</p:submenu>
+			<p:submenu label="#{request.userPrincipal.name}" icon="ui-icon-person">
+				<p:menuitem value="My Tasks" outcome="index" />
+				<p:menuitem value="My Profile" outcome="index" />
+				<p:menuitem value="Change Password" outcome="index" />
+				<p:menuitem value="My Preferences" outcome="index" />
+				<p:menuitem value="#{bundle['login.title.logout']}" action="#{loginBean.logout}" />
+			</p:submenu>
+		</p:menubar>
+	</h:form>
+
+</ui:composition>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+   
+   <managed-bean>
+  <managed-bean-name>utils</managed-bean-name>
+  <managed-bean-class>com.ikubinfo.project.utils.UtilityList</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+  <managed-property>
+   <property-name>status</property-name>
+   <map-entries>
+    <map-entry>
+     <key>0</key>
+     <value>PENDING</value>
+    </map-entry>
+    <map-entry>
+     <key>1</key>
+     <value>FINISHED</value>
+    </map-entry>
+    <map-entry>
+     <key>2</key>
+     <value>WAIT</value>
+    </map-entry>
+    <map-entry>
+     <key>3</key>
+     <value>SUSPENDED</value>
+    </map-entry>
+   </map-entries>
+  </managed-property>
+  
+  <managed-property>
+   <property-name>place</property-name>
+   <map-entries>
+    <map-entry>
+     <key>0</key>
+     <value>ONLINE</value>
+    </map-entry>
+    <map-entry>
+     <key>1</key>
+     <value>INTO_OFFICE</value>
+    </map-entry>
+    <map-entry>
+     <key>2</key>
+     <value>OUT_OFFICE</value>
+    </map-entry>
+   </map-entries>
+  </managed-property>
+  
+  </managed-bean>
+
+ <navigation-rule>
+  <from-view-id>/*</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/home/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+   <navigation-case>
+   <from-outcome>aims</from-outcome>
+   <to-view-id>/admin/aims/List.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+   <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+ </navigation-rule>
+ 
+ 
+ <navigation-rule>
+  <from-view-id>/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>success</from-outcome>
+   <to-view-id>/home/index.xhtml</to-view-id>
+   <redirect />
+     
+  </navigation-case>
+  
+    <navigation-case>
+        <from-outcome>failure</from-outcome>
+        <to-view-id>/error/login-error.xhtml</to-view-id>
+    <redirect />
+        
+        
+    </navigation-case>
+           
+   
+ </navigation-rule>
+ 
+ 
+
+ 
+ <application>
+  <resource-bundle>
+   <base-name>Bundle</base-name>
+   <var>bundle</var>
+  </resource-bundle>
+  <locale-config>
+   <default-locale>en</default-locale>
+   <supported-locale>sq</supported-locale>
+  </locale-config>
+ </application>
+</faces-config>

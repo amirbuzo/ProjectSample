@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui" >
+
+<ui:composition>
+
+	<p:dialog id="AimsViewDlg" widgetVar="AimsViewDialog" modal="true" resizable="true" appendTo="@(body)" header="#{bundle.ViewAimsTitle}"
+		maximizable="true">
+		<h:form id="AimsViewForm">
+			<h:panelGroup id="display">
+				<p:panelGrid columns="4" rendered="#{aimsController.selected != null}">
+
+   						<h:outputText value="#{bundle.ViewAimsLabel_id}"/>
+                        <h:outputText value="#{aimsController.selected.id}" title="#{bundle.ViewAimsTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewAimsLabel_aimDescription}"/>
+                        <h:outputText value="#{aimsController.selected.aimDescription}" title="#{bundle.ViewAimsTitle_aimDescription}"/>
+                        <h:outputText value="#{bundle.ViewAimsLabel_isActive}"/>
+                        <p:selectBooleanCheckbox value="#{aimsController.selected.isActive}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAimsLabel_createdDate}"/>
+                        <h:outputText value="#{aimsController.selected.createdDate}" title="#{bundle.ViewAimsTitle_createdDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAimsLabel_modifiedDate}"/>
+                        <h:outputText value="#{aimsController.selected.modifiedDate}" title="#{bundle.ViewAimsTitle_modifiedDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+				</p:panelGrid>
+				<p:commandButton value="#{bundle.Close}" onclick="AimsViewDialog.hide()" />
+			</h:panelGroup>
+		</h:form>
+	</p:dialog>
+
+</ui:composition>
+</html>

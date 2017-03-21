@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template.xhtml">
+
+
+	<ui:define name="title">
+		<h:outputText value="Dashboard"></h:outputText>
+	</ui:define>
+	<ui:define name="body">
+
+
+
+
+		<div align="center" style="height: 400px">
+			<h:form>
+				<p:growl id="msgs" showDetail="true" />
+
+				<p:dashboard id="board" model="#{dashboardView.model}">
+					<p:ajax event="reorder" listener="#{dashboardView.handleReorder}" update="msgs" />
+
+					<p:panel id="validators" header="Validation" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value="Standard Validators" />
+						<br />
+						<h:outputText value="Bean Validation (annotations)" />
+						<br />
+						<h:outputText value="Custom Validators" />
+						<br />
+					</p:panel>
+					<p:panel id="conversion" header="Conversion" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value="Standard Converters" />
+						<br />
+						<h:outputText value="Custom Converters" />
+						<br />
+						<h:link outcome="index" value="States" />
+
+					</p:panel>
+
+					<p:panel id="eventhandling" header="Event Handling" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value=" Life Cycle" />
+						<br />
+						<h:outputText value=" Action, Value, Phase, Systeme" />
+						<br />
+						<h:outputText value="Immediate" />
+						<br />
+						<h:outputText value=" Passing parameters UI   Server" />
+						<br />
+						<h:outputText value="  Flash scope" />
+						<br />
+						-
+	
+						
+						
+					</p:panel>
+
+					<p:panel id="beans" header="Beans" toggleable="true" style="width:300px;height:200px;">
+						<h:link outcome="index" value="Definition" />
+						<h:link outcome="index" value="Scopes" />
+						<h:link outcome="index" value="Injection" />
+						<h:link outcome="index" value="Life Cycle: @PostConstruct, @PreDestroy" />
+						<h:link outcome="index" value="Configuration: XML vs Annotations" />
+					</p:panel>
+
+					<p:panel id="templates" header="Layout" toggleable="true" style="width:300px;height:200px;">
+						<h:link outcome="index" value=" Building / Strukturimi i UI" />
+						<h:link outcome="index" value="Templates" />
+						<h:link outcome="index" value="Page fragmentation," />
+						<br />
+					</p:panel>
+
+
+					<p:panel id="composites" header="Composites Interfaces" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value="Composites" />
+						<h:link outcome="index" value="Composites" />
+						<br />
+					</p:panel>
+					<p:panel id="navigation" header="Navigation" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value="Dynamic " />
+						<h:link outcome="index" value="Static" />
+						<h:link outcome="index" value="Redirection vs Forward" />
+						
+					</p:panel>
+					<p:panel id="views" header="Views" toggleable="true" style="width:300px;height:200px;">
+						<h:outputText value="Views" />
+						<h:link outcome="index" value="Views" />
+					</p:panel>
+
+					<p:panel id="localization" header="Localization" toggleable="true" style="width:300px;height:200px;">
+											<h:outputText value=" Internationalization Localization" />
+											<h:outputText value=" Message Bundles" />
+				
+					</p:panel>
+
+			
+
+
+
+				</p:dashboard>
+
+
+				<div style="clear: both" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
